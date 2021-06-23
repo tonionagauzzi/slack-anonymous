@@ -8,7 +8,7 @@ exports.handler = async (event) => {
     const result = await web.chat.postMessage({
         token: process.env.SLACK_BOT_OAUTH_TOKEN,
         text: body.text,
-        channel: process.env.SLACK_CHANNEL,
+        channel: body.channel_id,
     });
     return {
         statusCode: 200,
