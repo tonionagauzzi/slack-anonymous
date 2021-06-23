@@ -4,13 +4,11 @@ const web = new WebClient(token);
 const querystring = require('querystring');
 
 exports.handler = async (event) => {
-    const token = process.env.SLACK_BOT_OAUTH_TOKEN;
     const body = querystring.parse(event.body);
-    const channel = event.channel;
     const result = await web.chat.postMessage({
-        token: token,
+        token: process.env.SLACK_BOT_OAUTH_TOKEN,
         text: body.text,
-        channel: channel,
+        channel: process.env.SLACK_CHANNEL,
     });
     return {
         statusCode: 200,
