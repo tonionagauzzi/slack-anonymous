@@ -1,17 +1,12 @@
 const { WebClient } = require('@slack/web-api');
-const { createEventAdapter } = require('@slack/events-api');
 const token = process.env.TOKEN;
 const web = new WebClient(token);
 const querystring = require('querystring');
 
-console.log(process.env.SLACK_SIGNING_SECRET);
-const slackEvents = createEventAdapter(process.env.SLACK_SIGNING_SECRET);
-
-slackEvents.on('message', async (slackEvent) => {
-    console.log(slackEvent.channel);
+exports.handler = async (event) => {
     const token = process.env.SLACK_BOT_OAUTH_TOKEN;
-    const body = querystring.parse(slackEvent.body);
-    const channel = slackEvent.channel;
+    const body = querystring.parse(event.body);
+    const channel = event.channel;
     const result = await web.chat.postMessage({
         token: token,
         text: body.text,
@@ -21,4 +16,4 @@ slackEvents.on('message', async (slackEvent) => {
         statusCode: 200,
         body: 'Posted your message as anonymous.',
     };
-});
+};
