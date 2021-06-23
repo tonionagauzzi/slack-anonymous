@@ -1,0 +1,23 @@
+{
+  "name": "slack-anonymous",
+  "version": "1.0.0",
+  "description": "Slack App",
+  "main": "index.js",
+  "scripts": {
+    "dev": "netlify-lambda serve resources/api --port 3326",
+    "build": "netlify-lambda build resources/api --port 3326"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonionagauzzi/slack-anonymous.git"
+  },
+  "author": "tonionagauzzi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tonionagauzzi/slack-anonymous/issues"
+  },
+  "homepage": "https://github.com/tonionagauzzi/slack-anonymous#readme",
+  "dependencies": {
+    "netlify-lambda": "^2.0.10"
+  }
+}
