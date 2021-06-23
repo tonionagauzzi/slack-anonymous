@@ -6,8 +6,9 @@ const querystring = require('querystring');
 exports.handler = async (event) => {
     const body = querystring.parse(event.body);
     const result = await web.chat.postMessage({
+        token: process.env.SLACK_BOT_OAUTH_TOKEN,
         text: body.text,
-        channel: '#nagauzzi',
+        channel: process.env.SLACK_CHANNEL,
     });
     return {
         statusCode: 200,
