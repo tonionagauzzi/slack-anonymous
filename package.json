@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/tonionagauzzi/slack-anonymous#readme",
   "dependencies": {
-    "netlify-lambda": "^2.0.10"
+    "netlify-lambda": "^2.0.10",
+    "query-string": "7.0.1",
+    "@slack/web-api": "^6.2.4"
   }
 }
